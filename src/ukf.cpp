@@ -44,13 +44,26 @@ UKF::UKF() {
   // Radar measurement noise standard deviation radius change in m/s
   std_radrd_ = 0.3;
 
-  /**
-  TODO:
+  // Initial status
+  is_initialized_ = false
 
-  Complete the initialization. See ukf.h for other member properties.
+  // State dimension
+  n_x_ = 5;
 
-  Hint: one or more values initialized above might be wildly off...
-  */
+  // Augmented state dimension
+  n_aug_ = 7;
+
+  // Sigma point spreading parameter
+  lambda_ = 3 - n_aug_;
+
+  // Predicted sigma points matrix
+  Xsig_pred_ = MatrixXd(n_x_, 2 * n_aug_ + 1);
+
+  // Time when the state is true, in us
+  time_us_ = 0.0;
+
+  // Weights of sigma points
+  weights_ = VectorXd(2 * n_aug_ + 1);
 }
 
 UKF::~UKF() {}
