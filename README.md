@@ -17,7 +17,7 @@ Once the install for uWebSocketIO is complete, the main program can be built and
 
 or
 
-1. ./build-ekf.sh  # shell script shortcut
+1. ./build-ukf.sh  # shell script shortcut
 
 
 INPUT: values provided by the simulator to the c++ program
